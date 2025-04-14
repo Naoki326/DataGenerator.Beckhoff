@@ -20,9 +20,17 @@ namespace PLCManager.Demo.Root
 	{
 
 		/// <summary>
+		/// Name from PLC:_TaskPouOid_PlcTask
+		/// TypeName from PLC: OTCID
+		/// (IndexGroup, IndexOffset): (16448,385044)
+		/// Size: 4
+		public IBaseData<uint> _TaskPouOid_PlcTask { get; }
+		internal uint ref__TaskPouOid_PlcTask = new uint();
+
+		/// <summary>
 		/// Name from PLC:_AppInfo
 		/// TypeName from PLC: PLC.PlcAppSystemInfo
-		/// (IndexGroup, IndexOffset): (16448,2005752)
+		/// (IndexGroup, IndexOffset): (16448,385048)
 		/// Size: 256
 		public PLC_PlcAppSystemInfoWrapper _AppInfo { get; }
 		internal PLC_PlcAppSystemInfo ref__AppInfo = new PLC_PlcAppSystemInfo();
@@ -30,23 +38,15 @@ namespace PLCManager.Demo.Root
 		/// <summary>
 		/// Name from PLC:_TaskInfo
 		/// TypeName from PLC: ARRAY [1..1] OF PLC.PlcTaskSystemInfo
-		/// (IndexGroup, IndexOffset): (16448,2006008)
+		/// (IndexGroup, IndexOffset): (16448,385304)
 		/// Size: 128
 		public IStructArray<PLC_PlcTaskSystemInfo1, PLC_PlcTaskSystemInfoWrapper, PLC_PlcTaskSystemInfo> _TaskInfo { get; }
 		internal PLC_PlcTaskSystemInfo1 ref__TaskInfo = new PLC_PlcTaskSystemInfo1();
 
 		/// <summary>
-		/// Name from PLC:_TaskPouOid_PlcTask
-		/// TypeName from PLC: OTCID
-		/// (IndexGroup, IndexOffset): (16448,2006136)
-		/// Size: 4
-		public IBaseData<uint> _TaskPouOid_PlcTask { get; }
-		internal uint ref__TaskPouOid_PlcTask = new uint();
-
-		/// <summary>
 		/// Name from PLC:_TaskOid_PlcTask
 		/// TypeName from PLC: OTCID
-		/// (IndexGroup, IndexOffset): (16448,2006140)
+		/// (IndexGroup, IndexOffset): (16448,385432)
 		/// Size: 4
 		public IBaseData<uint> _TaskOid_PlcTask { get; }
 		internal uint ref__TaskOid_PlcTask = new uint();
@@ -54,7 +54,7 @@ namespace PLCManager.Demo.Root
 		/// <summary>
 		/// Name from PLC:__PlcTask
 		/// TypeName from PLC: _Implicit_Task_Info
-		/// (IndexGroup, IndexOffset): (16448,2006144)
+		/// (IndexGroup, IndexOffset): (16448,385440)
 		/// Size: 112
 		public _Implicit_Task_InfoWrapper __PlcTask { get; }
 		internal _Implicit_Task_Info ref___PlcTask = new _Implicit_Task_Info();

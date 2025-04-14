@@ -11,8 +11,9 @@ using PlcCore.Data;
 namespace PLCManager.Demo.Root
 {
 	
-	internal static class GetClass_467d18ed48e2438088586334c06e582e
+	internal static class GetClass_4b08a17c5a17457c9145bfb283cea878
 	{
+		internal static ref uint Get_TaskPouOid_PlcTask(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__TaskPouOid_PlcTask;
 		internal static ref PLC_PlcAppSystemInfo Get_AppInfo(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__AppInfo;
 		internal static ref uint Get_AppInfo_Dot_ObjId(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__AppInfo.ObjId;
 		internal static ref uint Get_AppInfo_Dot_TaskCnt(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__AppInfo.TaskCnt;
@@ -44,7 +45,6 @@ namespace PLCManager.Demo.Root
 		internal static ref bool Get_TaskInfo0_Dot_InCallAfterOutputUpdate(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__TaskInfo.Item_0.InCallAfterOutputUpdate;
 		internal static ref bool Get_TaskInfo0_Dot_RTViolation(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__TaskInfo.Item_0.RTViolation;
 		internal static ref String64 Get_TaskInfo0_Dot_TaskName(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__TaskInfo.Item_0.TaskName;
-		internal static ref uint Get_TaskPouOid_PlcTask(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__TaskPouOid_PlcTask;
 		internal static ref uint Get_TaskOid_PlcTask(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__TaskOid_PlcTask;
 		internal static ref _Implicit_Task_Info Get__PlcTask(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref___PlcTask;
 		internal static ref int Get__PlcTask_Dot_dwVersion(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref___PlcTask.dwVersion;
