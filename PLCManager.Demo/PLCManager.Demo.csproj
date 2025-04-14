@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<LangVersion>latest</LangVersion>
+	<Platforms>AnyCPU;x64</Platforms>
+	<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Beckhoff.TwinCAT.Ads" Version="6.1.304" />
+    <PackageReference Include="Beckhoff.TwinCAT.Ads.Reactive" Version="6.1.304" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PLCManager.Interface\PLCManager.Interface.csproj" />
+  </ItemGroup>
+
+</Project>

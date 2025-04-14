@@ -1,0 +1,15 @@
+﻿@inherits LayoutComponentBase
+@implements IDisposable
+
+@inject I18n I18n
+@inject MasaBlazor MasaBlazor
+@inject IJSRuntime JSRuntime
+
+<MApp Id="inspire">
+    <CascadingValue Value="@I18n.Culture.ToString()" Name="Culture">
+        @* 内容部分 *@
+        <MMain>
+            @Body
+        </MMain>
+    </CascadingValue>
+</MApp>

@@ -1,0 +1,271 @@
+﻿@using PlcCore.Data
+@using System.Diagnostics
+@using System.Reactive.Linq
+@using System.Linq.Expressions
+@implements IDisposable
+
+@switch (CurrentData)
+{
+	case IBaseData<bool> Data:
+		<MIcon Color="@(Data.Data ? "success": "red")">
+			mdi-circle
+		</MIcon>
+		<MButton Small Color="success" OnClick="@(async()=> { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(true))" Width="120">
+			SetOn
+		</MButton>
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(false))" Width="120">
+			SetOff
+		</MButton>
+		break;
+	case IBaseData<short> Data:
+		<MTextField Label="Current Value" Readonly Style="width:60;"
+		Value="@(Data.Data)" />
+
+		<MButton Small Color="success" OnClick="@(async()=> { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MTextField Label="SetValue" Type="number" UpdateOnChange Style="width:60;"
+		Value="@(tempShortV)" OnChange="@((short v) => tempShortV = v)" />
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(tempShortV))" Width="120">
+			Set
+		</MButton>
+		break;
+	case IBaseData<ushort> Data:
+		<MTextField Label="Current Value" Readonly Style="width:60;"
+		Value="@(Data.Data)" />
+		<MButton Small Color="success" OnClick="@(async()=> { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MTextField Label="SetValue" Type="number" UpdateOnChange Style="width:60;"
+		Value="@(tempUShortV)" OnChange="@((ushort v) => tempUShortV = v)" />
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(tempUShortV))" Width="120">
+			Set
+		</MButton>
+		break;
+	case IBaseData<int> Data:
+		<MTextField Label="Current Value" Readonly Style="width:60;"
+		Value="@(Data.Data)" />
+		<MButton Small Color="success" OnClick="@(async() => { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MTextField Label="SetValue" Type="number" UpdateOnChange Style="width:60;"
+		Value="@(tempIntV)" OnChange="@((int v) => tempIntV = v)" />
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(tempIntV))" Width="120">
+			Set
+		</MButton>
+		break;
+	case IBaseData<uint> Data:
+		<MTextField Label="Current Value" Readonly Style="width:60;"
+		Value="@(Data.Data)" />
+		<MButton Small Color="success" OnClick="@(async() => { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MTextField Label="SetValue" Type="number" UpdateOnChange Style="width:60;"
+		Value="@(tempUIntV)" OnChange="@((uint v) => tempUIntV = v)" />
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(tempUIntV))" Width="120">
+			Set
+		</MButton>
+		break;
+	case IBaseData<long> Data:
+		<MTextField Label="Current Value" Readonly Style="width:60;"
+		Value="@(Data.Data)" />
+		<MButton Small Color="success" OnClick="@(async() => { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MTextField Label="SetValue" Type="number" UpdateOnChange Style="width:60;"
+		Value="@(tempLongV)" OnChange="@((long v) => tempLongV = v)" />
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(tempLongV))" Width="120">
+			Set
+		</MButton>
+		break;
+	case IBaseData<ulong> Data:
+		<MTextField Label="Current Value" Readonly Style="width:60;"
+		Value="@(Data.Data)" />
+		<MButton Small Color="success" OnClick="@(async() => { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MTextField Label="SetValue" Type="number" UpdateOnChange Style="width:60;"
+		Value="@(tempULongV)" OnChange="@((ulong v) => tempULongV = v)" />
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(tempULongV))" Width="120">
+			Set
+		</MButton>
+		break;
+	case IBaseData<float> Data:
+		<MTextField Label="Current Value" Readonly Style="width:60;"
+		Value="@(Data.Data)" />
+		<MButton Small Color="success" OnClick="@(async() => { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MTextField Label="SetValue" Type="number" UpdateOnChange Style="width:60;"
+		Value="@(tempFloatV)" OnChange="@((float v) => tempFloatV = v)" />
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(tempFloatV))" Width="120">
+			Set
+		</MButton>
+		break;
+	case IBaseData<double> Data:
+		<MTextField Label="Current Value" Readonly Style="width:60;"
+		Value="@(Data.Data)" />
+		<MButton Small Color="success" OnClick="@(async() => { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MTextField Label="SetValue" Type="number" UpdateOnChange Style="width:60;"
+		Value="@(tempDoubleV)" OnChange="@((double v) => tempDoubleV = v)" />
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(tempDoubleV))" Width="120">
+			Set
+		</MButton>
+		break;
+	case IBaseString Data:
+		<MTextField Label="Current Value" Readonly Style="width:60;"
+		Value="@(Data.Data)" />
+		<MButton Small Color="success" OnClick="@(async() => { await RecordDuration(()=>Data.Get()); await InvokeAsync(StateHasChanged);})" Width="120">
+			Get
+		</MButton>
+		<MTextField Label="SetValue" Type="number" UpdateOnChange Style="width:60;"
+		Value="@(tempStringV)" OnChange="@((string v) => tempStringV = v)" />
+		<MButton Small Color="success" OnClick="@(()=>Data.Set(tempStringV))" Width="120">
+			Set
+		</MButton>
+		break;
+}
+@* <MButton Small Color="success" OnClick="@(()=> CurrentData.SelfNotify = (true))" Width="120">
+	SetNotifyOn
+</MButton>
+<MButton Small Color="success" OnClick="@(()=> CurrentData.SelfNotify = (false))" Width="120">
+	SetNotifyOff
+</MButton> *@
+<MSwitch TValue="bool" Inset Color="success" @bind-value="@(CurrentData.SelfNotify)" >
+	IsNotify
+</MSwitch>
+
+@code {
+	short tempShortV = 0;
+	ushort tempUShortV = 0;
+	int tempIntV = 0;
+	uint tempUIntV = 0;
+	long tempLongV = 0;
+	ulong tempULongV = 0;
+	float tempFloatV = 0;
+	double tempDoubleV = 0;
+	string tempStringV = "";
+
+	string ShortColor(double v) => v switch
+	{
+		<= 20 => "indigo",
+		<= 40 => "teal",
+		<= 60 => "green",
+		<= 80 => "orange",
+		_ => "red",
+	};
+
+	[Parameter]
+	public EventCallback<long> CheckDuration { get; set; }
+
+	[Parameter]
+	public IBaseData CurrentData { get; set; } = default!;
+
+	protected override Task OnAfterRenderAsync(bool firstRender)
+	{
+		if (firstRender)
+		{
+			if (CurrentData is IObservable<object> objObservable)
+			{
+				//objObservable.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+			}
+			else
+			{
+				switch (CurrentData)
+				{
+					case IObservable<bool> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<byte> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<short> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<ushort> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<int> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<uint> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<long> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<ulong> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<float> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<double> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<bool[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<byte[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<short[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<ushort[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<int[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<uint[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<long[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<ulong[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<float[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<double[]> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+					case IObservable<string> data:
+						data.Throttle(TimeSpan.FromMilliseconds(80)).Subscribe((v) => InvokeAsync(StateHasChanged));
+						break;
+				}
+			}
+		}
+		return base.OnAfterRenderAsync(firstRender);
+	}
+
+	Stopwatch sw = new Stopwatch();
+	private async Task RecordDurationTask(Func<Task> t)
+	{
+		sw.Restart();
+		await t();
+		sw.Stop();
+		await CheckDuration.InvokeAsync(sw.ElapsedMilliseconds);
+	}
+	private async Task RecordDuration(Action t)
+	{
+		sw.Restart();
+		t();
+		sw.Stop();
+		await CheckDuration.InvokeAsync(sw.ElapsedMilliseconds);
+	}
+
+	public void Dispose()
+	{
+		// CurrentData.Dispose();
+	}
+
+}

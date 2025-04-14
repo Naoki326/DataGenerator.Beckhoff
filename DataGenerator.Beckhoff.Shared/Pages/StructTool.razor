@@ -1,0 +1,54 @@
+﻿@if (Root is not null)
+{
+    <MTreeview @bind-Open="@initiallyOpen"
+               Rounded
+               Hoverable
+               Dense
+               Items="@([.. Root.Children])"
+               ItemText="@(p=>p.Name)"
+               ItemChildren="@(p=>[.. p.Children.Where(q => q is not null)])"
+               ItemKey="@(p=>p.GetHashCode())">
+        <LabelContent>
+            <PBlockText Primary="@context.Item.Name" Secondary="@context.Item.GetType().Name" />
+        </LabelContent>
+        <AppendContent>
+            <BeckhoffDataView CurrentData="@context.Item"></BeckhoffDataView>
+        </AppendContent>
+    </MTreeview>
+}
+<MButton OnClick="ReLoadRoot" Disabled="!canReLoadRoot">
+    重载dll
+</MButton>
+<MButton OnClick="UnLoadRoot" Disabled="!canReLoadRoot">
+    断开dll
+</MButton>
+
+<MButton OnClick="Connect" Disabled="!canConnect">
+    连接
+</MButton>
+
+<MButton OnClick="Disconnect" Disabled="!canDisconnect">
+    断开
+</MButton>
+
+<style>
+    .Home-body {
+        display: flex;
+        width: 100%;
+        height: 90vh; /* 设置总高度 */
+        border: 1px solid #ccc; /* 添加边框可视化 */
+    }
+
+    .scrollable-container {
+        flex: 2; /* 占据可用空间的 1/2 */
+        overflow-y: auto; /* 允许垂直滚动 */
+        border-right: 1px solid #ccc; /* 添加右边框分隔 */
+        box-sizing: border-box; /* 包括内边距和边框在内 */
+    }
+
+    /* 静态容器 */
+    .static-container {
+        flex: 1; /* 占据可用空间的 1/2 */
+        box-sizing: border-box; /* 包括内边距和边框在内 */
+    }
+</style>

@@ -1,0 +1,95 @@
+﻿
+<MECharts Option="option"
+Width="800"
+MinHeight="600"
+@ref="echarts">
+</MECharts>
+
+<MButton OnClick="ClearChart">
+    清空
+</MButton>
+
+@code {
+
+
+
+    private MECharts? echarts;
+
+    private object option = new();
+
+    private record Data(string Name, object[] Value);
+    List<Data> data = new List<Data>();
+
+    int trailTime = 0;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await UpdateChart();
+    }
+
+
+    public async Task AddData(long durationTime)
+    {
+        int tempT = trailTime++;
+        var now = DateTime.Now;
+        string dataName = $"第{tempT}次";
+        data.Add(new Data(dataName, new object[] { tempT, durationTime }));
+        await UpdateChart();
+    }
+
+    private async Task UpdateChart()
+    {
+        option = new
+        {
+            Title = new
+            {
+                text = "Duration Time"
+            },
+            Tooltip = new
+            {
+                Trigger = "axis",
+                axisPointer = new
+                {
+                    animation = false
+                }
+            },
+            xAxis = new
+            {
+                type = "category",
+                name = "x",
+                splitLine = new
+                {
+                    show = false
+                }
+            },
+            yAxis = new
+            {
+                type = "value",
+                boundaryGap = new object[] { 0, "100%" },
+                splitLine = new
+                {
+                    show = false
+                }
+            },
+            series = new object[]
+            {
+                new
+                {
+                    name = "Duration Data",
+                    type = "line",
+                    showSymbol = false,
+                    data = data
+                }
+            }
+        };
+        await InvokeAsync(StateHasChanged);
+    }
+
+    private async Task ClearChart()
+    {
+        data.Clear();
+        trailTime = 0;
+        await UpdateChart();
+    }
+
+}

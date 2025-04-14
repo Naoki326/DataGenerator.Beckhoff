@@ -1,0 +1,2292 @@
+{
+    "$id": "1",
+    "directoryPath": "Demo001",
+    "nameSpace": "PLCManager.Demo",
+    "rootFileName": "Demo001",
+    "dllName": "PLCManager.Demo",
+    "typeDict": {
+        "$id": "2",
+        "_Implicit_Jitter_Distribution": {
+            "$id": "3",
+            "IPlcTypeInfo": "StructInfo",
+            "dataType": 5,
+            "fields": {
+                "$id": "4",
+                "$values": [
+                    {
+                        "$id": "5",
+                        "offset": 0,
+                        "instanceName": "wRangeMax",
+                        "typeName": "WORD"
+                    },
+                    {
+                        "$id": "6",
+                        "offset": 2,
+                        "instanceName": "wCountJitterNeg",
+                        "typeName": "WORD"
+                    },
+                    {
+                        "$id": "7",
+                        "offset": 4,
+                        "instanceName": "wCountJitterPos",
+                        "typeName": "WORD"
+                    }
+                ]
+            },
+            "name": "_Implicit_Jitter_Distribution",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 6
+        },
+        "_Implicit_KindOfTask": {
+            "$id": "8",
+            "IPlcTypeInfo": "EnumInfo",
+            "baseTypeName": "INT",
+            "baseType": {
+                "$id": "9",
+                "IPlcTypeInfo": "PrimitiveInfo",
+                "dataType": 1,
+                "name": "INT",
+                "nameSpace": "5.113.195.149.1.1:851",
+                "typeComment": "",
+                "size": 16
+            },
+            "values": {
+                "$id": "10",
+                "$values": [
+                    {
+                        "$id": "11",
+                        "key": "_implicit_cyclic",
+                        "value": 0
+                    },
+                    {
+                        "$id": "12",
+                        "key": "_implicit_event",
+                        "value": 1
+                    },
+                    {
+                        "$id": "13",
+                        "key": "_implicit_external",
+                        "value": 2
+                    },
+                    {
+                        "$id": "14",
+                        "key": "_implicit_freewheeling",
+                        "value": 3
+                    }
+                ]
+            },
+            "dataType": 3,
+            "name": "_Implicit_KindOfTask",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 2
+        },
+        "_Implicit_Task_Info": {
+            "$id": "15",
+            "IPlcTypeInfo": "StructInfo",
+            "dataType": 5,
+            "fields": {
+                "$id": "16",
+                "$values": [
+                    {
+                        "$id": "17",
+                        "offset": 0,
+                        "instanceName": "dwVersion",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "18",
+                        "offset": 8,
+                        "instanceName": "pszName",
+                        "typeName": "POINTER TO STRING(80)"
+                    },
+                    {
+                        "$id": "19",
+                        "offset": 16,
+                        "instanceName": "nPriority",
+                        "typeName": "INT"
+                    },
+                    {
+                        "$id": "20",
+                        "offset": 18,
+                        "instanceName": "KindOf",
+                        "typeName": "_Implicit_KindOfTask"
+                    },
+                    {
+                        "$id": "21",
+                        "offset": 20,
+                        "instanceName": "bWatchdog",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "22",
+                        "offset": 21,
+                        "instanceName": "bProfilingTask",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "23",
+                        "offset": 24,
+                        "instanceName": "dwEventFunctionPointer",
+                        "typeName": "POINTER TO BYTE"
+                    },
+                    {
+                        "$id": "24",
+                        "offset": 32,
+                        "instanceName": "pszExternalEvent",
+                        "typeName": "POINTER TO STRING(80)"
+                    },
+                    {
+                        "$id": "25",
+                        "offset": 40,
+                        "instanceName": "dwTaskEntryFunctionPointer",
+                        "typeName": "POINTER TO BYTE"
+                    },
+                    {
+                        "$id": "26",
+                        "offset": 48,
+                        "instanceName": "dwWatchdogSensitivity",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "27",
+                        "offset": 52,
+                        "instanceName": "dwInterval",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "28",
+                        "offset": 56,
+                        "instanceName": "dwWatchdogTime",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "29",
+                        "offset": 60,
+                        "instanceName": "dwLastCycleTime",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "30",
+                        "offset": 64,
+                        "instanceName": "dwAverageCycleTime",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "31",
+                        "offset": 68,
+                        "instanceName": "dwMaxCycleTime",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "32",
+                        "offset": 72,
+                        "instanceName": "dwMinCycleTime",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "33",
+                        "offset": 76,
+                        "instanceName": "diJitter",
+                        "typeName": "DINT"
+                    },
+                    {
+                        "$id": "34",
+                        "offset": 80,
+                        "instanceName": "diJitterMin",
+                        "typeName": "DINT"
+                    },
+                    {
+                        "$id": "35",
+                        "offset": 84,
+                        "instanceName": "diJitterMax",
+                        "typeName": "DINT"
+                    },
+                    {
+                        "$id": "36",
+                        "offset": 88,
+                        "instanceName": "dwCycleCount",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "37",
+                        "offset": 92,
+                        "instanceName": "wTaskStatus",
+                        "typeName": "WORD"
+                    },
+                    {
+                        "$id": "38",
+                        "offset": 94,
+                        "instanceName": "wNumOfJitterDistributions",
+                        "typeName": "WORD"
+                    },
+                    {
+                        "$id": "39",
+                        "offset": 96,
+                        "instanceName": "pJitterDistribution",
+                        "typeName": "POINTER TO _Implicit_Jitter_Distribution"
+                    },
+                    {
+                        "$id": "40",
+                        "offset": 104,
+                        "instanceName": "bWithinSPSTimeSlicing",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "41",
+                        "offset": 105,
+                        "instanceName": "byDummy",
+                        "typeName": "BYTE"
+                    },
+                    {
+                        "$id": "42",
+                        "offset": 106,
+                        "instanceName": "bShouldBlock",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "43",
+                        "offset": 107,
+                        "instanceName": "bActive",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "44",
+                        "offset": 108,
+                        "instanceName": "dwIECCycleCount",
+                        "typeName": "DWORD"
+                    }
+                ]
+            },
+            "name": "_Implicit_Task_Info",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 112
+        },
+        "AMSADDR": {
+            "$id": "45",
+            "IPlcTypeInfo": "StructInfo",
+            "dataType": 5,
+            "fields": {
+                "$id": "46",
+                "$values": [
+                    {
+                        "$id": "47",
+                        "offset": 0,
+                        "instanceName": "netId",
+                        "typeName": "AMSNETID"
+                    },
+                    {
+                        "$id": "48",
+                        "offset": 6,
+                        "instanceName": "port",
+                        "typeName": "WORD"
+                    }
+                ]
+            },
+            "name": "AMSADDR",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "AMSNETID": {
+            "$id": "49",
+            "IPlcTypeInfo": "AliasInfo",
+            "baseType": {
+                "$id": "50",
+                "IPlcTypeInfo": "ArrayInfo",
+                "isStartFromZero": true,
+                "arrayLength": 6,
+                "dataType": 4,
+                "arrayInnerTypeName": "BYTE",
+                "arrayInnerType": {
+                    "$id": "51",
+                    "IPlcTypeInfo": "PrimitiveInfo",
+                    "dataType": 1,
+                    "name": "BYTE",
+                    "nameSpace": "5.113.195.149.1.1:851",
+                    "typeComment": "",
+                    "size": 8
+                },
+                "name": "ARRAY [0..5] OF BYTE",
+                "nameSpace": "5.113.195.149.1.1:851",
+                "typeComment": "",
+                "size": 6
+            },
+            "baseTypeName": "ARRAY [0..5] OF BYTE",
+            "dataType": 2,
+            "name": "AMSNETID",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 1
+        },
+        "ARRAY [0..5] OF BYTE": {
+            "$ref": "50"
+        },
+        "ARRAY [0..7] OF BYTE": {
+            "$id": "52",
+            "IPlcTypeInfo": "ArrayInfo",
+            "isStartFromZero": true,
+            "arrayLength": 8,
+            "dataType": 4,
+            "arrayInnerTypeName": "BYTE",
+            "arrayInnerType": {
+                "$ref": "51"
+            },
+            "name": "ARRAY [0..7] OF BYTE",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "ARRAY [1..1] OF PLC.PlcTaskSystemInfo": {
+            "$id": "53",
+            "IPlcTypeInfo": "ArrayInfo",
+            "isStartFromZero": false,
+            "arrayLength": 1,
+            "dataType": 4,
+            "arrayInnerTypeName": "PLC.PlcTaskSystemInfo",
+            "arrayInnerType": {
+                "$id": "54",
+                "IPlcTypeInfo": "StructInfo",
+                "dataType": 5,
+                "fields": {
+                    "$id": "55",
+                    "$values": [
+                        {
+                            "$id": "56",
+                            "offset": 0,
+                            "instanceName": "ObjId",
+                            "typeName": "OTCID"
+                        },
+                        {
+                            "$id": "57",
+                            "offset": 4,
+                            "instanceName": "CycleTime",
+                            "typeName": "UDINT"
+                        },
+                        {
+                            "$id": "58",
+                            "offset": 8,
+                            "instanceName": "Priority",
+                            "typeName": "UINT"
+                        },
+                        {
+                            "$id": "59",
+                            "offset": 10,
+                            "instanceName": "AdsPort",
+                            "typeName": "UINT"
+                        },
+                        {
+                            "$id": "60",
+                            "offset": 12,
+                            "instanceName": "CycleCount",
+                            "typeName": "UDINT"
+                        },
+                        {
+                            "$id": "61",
+                            "offset": 16,
+                            "instanceName": "DcTaskTime",
+                            "typeName": "LINT"
+                        },
+                        {
+                            "$id": "62",
+                            "offset": 24,
+                            "instanceName": "LastExecTime",
+                            "typeName": "UDINT"
+                        },
+                        {
+                            "$id": "63",
+                            "offset": 28,
+                            "instanceName": "FirstCycle",
+                            "typeName": "BOOL"
+                        },
+                        {
+                            "$id": "64",
+                            "offset": 29,
+                            "instanceName": "CycleTimeExceeded",
+                            "typeName": "BOOL"
+                        },
+                        {
+                            "$id": "65",
+                            "offset": 30,
+                            "instanceName": "InCallAfterOutputUpdate",
+                            "typeName": "BOOL"
+                        },
+                        {
+                            "$id": "66",
+                            "offset": 31,
+                            "instanceName": "RTViolation",
+                            "typeName": "BOOL"
+                        },
+                        {
+                            "$id": "67",
+                            "offset": 64,
+                            "instanceName": "TaskName",
+                            "typeName": "STRING(63)"
+                        }
+                    ]
+                },
+                "name": "PLC.PlcTaskSystemInfo",
+                "nameSpace": "5.113.195.149.1.1:851",
+                "typeComment": "",
+                "size": 128
+            },
+            "name": "ARRAY [1..1] OF PLC.PlcTaskSystemInfo",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 128
+        },
+        "BOOL": {
+            "$id": "68",
+            "IPlcTypeInfo": "PrimitiveInfo",
+            "dataType": 1,
+            "name": "BOOL",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "BYTE": {
+            "$ref": "51"
+        },
+        "CLSID": {
+            "$id": "69",
+            "IPlcTypeInfo": "AliasInfo",
+            "baseType": {
+                "$id": "70",
+                "IPlcTypeInfo": "StructInfo",
+                "dataType": 5,
+                "fields": {
+                    "$id": "71",
+                    "$values": [
+                        {
+                            "$id": "72",
+                            "offset": 0,
+                            "instanceName": "Data1",
+                            "typeName": "DWORD"
+                        },
+                        {
+                            "$id": "73",
+                            "offset": 4,
+                            "instanceName": "Data2",
+                            "typeName": "WORD"
+                        },
+                        {
+                            "$id": "74",
+                            "offset": 6,
+                            "instanceName": "Data3",
+                            "typeName": "WORD"
+                        },
+                        {
+                            "$id": "75",
+                            "offset": 8,
+                            "instanceName": "Data4",
+                            "typeName": "ARRAY [0..7] OF BYTE"
+                        }
+                    ]
+                },
+                "name": "GUID",
+                "nameSpace": "5.113.195.149.1.1:851",
+                "typeComment": "",
+                "size": 16
+            },
+            "baseTypeName": "GUID",
+            "dataType": 2,
+            "name": "CLSID",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 1
+        },
+        "DINT": {
+            "$id": "76",
+            "IPlcTypeInfo": "PrimitiveInfo",
+            "dataType": 1,
+            "name": "DINT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 32
+        },
+        "DT": {
+            "$id": "77",
+            "IPlcTypeInfo": "PrimitiveInfo",
+            "dataType": 1,
+            "name": "DT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 32
+        },
+        "DWORD": {
+            "$id": "78",
+            "IPlcTypeInfo": "PrimitiveInfo",
+            "dataType": 1,
+            "name": "DWORD",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 32
+        },
+        "GUID": {
+            "$ref": "70"
+        },
+        "HRESULT": {
+            "$id": "79",
+            "IPlcTypeInfo": "AliasInfo",
+            "baseType": {
+                "$ref": "76"
+            },
+            "baseTypeName": "DINT",
+            "dataType": 2,
+            "name": "HRESULT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 1
+        },
+        "IID": {
+            "$id": "80",
+            "IPlcTypeInfo": "AliasInfo",
+            "baseType": {
+                "$ref": "70"
+            },
+            "baseTypeName": "GUID",
+            "dataType": 2,
+            "name": "IID",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 1
+        },
+        "INT": {
+            "$ref": "9"
+        },
+        "ITcBaseClassFactory": {
+            "$id": "81",
+            "IPlcTypeInfo": "InterfaceInfo",
+            "dataType": 16,
+            "name": "ITcBaseClassFactory",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "ITComObjCon": {
+            "$id": "82",
+            "IPlcTypeInfo": "InterfaceInfo",
+            "dataType": 16,
+            "name": "ITComObjCon",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "ITComObjectServer": {
+            "$id": "83",
+            "IPlcTypeInfo": "InterfaceInfo",
+            "dataType": 16,
+            "name": "ITComObjectServer",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "ITComObjInd": {
+            "$id": "84",
+            "IPlcTypeInfo": "InterfaceInfo",
+            "dataType": 16,
+            "name": "ITComObjInd",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "ITComObjRes": {
+            "$id": "85",
+            "IPlcTypeInfo": "InterfaceInfo",
+            "dataType": 16,
+            "name": "ITComObjRes",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "ITcUnknown": {
+            "$id": "86",
+            "IPlcTypeInfo": "InterfaceInfo",
+            "dataType": 16,
+            "name": "ITcUnknown",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "LINT": {
+            "$id": "87",
+            "IPlcTypeInfo": "PrimitiveInfo",
+            "dataType": 1,
+            "name": "LINT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 64
+        },
+        "OTCID": {
+            "$id": "88",
+            "IPlcTypeInfo": "AliasInfo",
+            "baseType": {
+                "$id": "89",
+                "IPlcTypeInfo": "PrimitiveInfo",
+                "dataType": 1,
+                "name": "UDINT",
+                "nameSpace": "5.113.195.149.1.1:851",
+                "typeComment": "",
+                "size": 32
+            },
+            "baseTypeName": "UDINT",
+            "dataType": 2,
+            "name": "OTCID",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 1
+        },
+        "PLC.EPlcPersistentStatus": {
+            "$id": "90",
+            "IPlcTypeInfo": "EnumInfo",
+            "baseTypeName": "USINT",
+            "baseType": {
+                "$id": "91",
+                "IPlcTypeInfo": "PrimitiveInfo",
+                "dataType": 1,
+                "name": "USINT",
+                "nameSpace": "5.113.195.149.1.1:851",
+                "typeComment": "",
+                "size": 8
+            },
+            "values": {
+                "$id": "92",
+                "$values": [
+                    {
+                        "$id": "93",
+                        "key": "PS_None",
+                        "value": 0
+                    },
+                    {
+                        "$id": "94",
+                        "key": "PS_All",
+                        "value": 1
+                    },
+                    {
+                        "$id": "95",
+                        "key": "PS_Partial",
+                        "value": 2
+                    }
+                ]
+            },
+            "dataType": 3,
+            "name": "PLC.EPlcPersistentStatus",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 1
+        },
+        "PLC.PlcAppSystemInfo": {
+            "$id": "96",
+            "IPlcTypeInfo": "StructInfo",
+            "dataType": 5,
+            "fields": {
+                "$id": "97",
+                "$values": [
+                    {
+                        "$id": "98",
+                        "offset": 0,
+                        "instanceName": "ObjId",
+                        "typeName": "OTCID"
+                    },
+                    {
+                        "$id": "99",
+                        "offset": 4,
+                        "instanceName": "TaskCnt",
+                        "typeName": "UDINT"
+                    },
+                    {
+                        "$id": "100",
+                        "offset": 8,
+                        "instanceName": "OnlineChangeCnt",
+                        "typeName": "UDINT"
+                    },
+                    {
+                        "$id": "101",
+                        "offset": 12,
+                        "instanceName": "Flags",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "102",
+                        "offset": 16,
+                        "instanceName": "AdsPort",
+                        "typeName": "UINT"
+                    },
+                    {
+                        "$id": "103",
+                        "offset": 18,
+                        "instanceName": "BootDataLoaded",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "104",
+                        "offset": 19,
+                        "instanceName": "OldBootData",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "105",
+                        "offset": 20,
+                        "instanceName": "AppTimestamp",
+                        "typeName": "DT"
+                    },
+                    {
+                        "$id": "106",
+                        "offset": 24,
+                        "instanceName": "KeepOutputsOnBP",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "107",
+                        "offset": 25,
+                        "instanceName": "ShutdownInProgress",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "108",
+                        "offset": 26,
+                        "instanceName": "LicensesPending",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "109",
+                        "offset": 27,
+                        "instanceName": "BSODOccured",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "110",
+                        "offset": 28,
+                        "instanceName": "LoggedIn",
+                        "typeName": "BOOL"
+                    },
+                    {
+                        "$id": "111",
+                        "offset": 29,
+                        "instanceName": "PersistentStatus",
+                        "typeName": "PLC.EPlcPersistentStatus"
+                    },
+                    {
+                        "$id": "112",
+                        "offset": 32,
+                        "instanceName": "TComSrvPtr",
+                        "typeName": "ITComObjectServer"
+                    },
+                    {
+                        "$id": "113",
+                        "offset": 64,
+                        "instanceName": "AppName",
+                        "typeName": "STRING(63)"
+                    },
+                    {
+                        "$id": "114",
+                        "offset": 128,
+                        "instanceName": "ProjectName",
+                        "typeName": "STRING(63)"
+                    }
+                ]
+            },
+            "name": "PLC.PlcAppSystemInfo",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 256
+        },
+        "PLC.PlcTaskSystemInfo": {
+            "$ref": "54"
+        },
+        "POINTER TO _Implicit_Jitter_Distribution": {
+            "$id": "115",
+            "IPlcTypeInfo": "PointerInfo",
+            "dataType": 13,
+            "name": "POINTER TO _Implicit_Jitter_Distribution",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "POINTER TO BYTE": {
+            "$id": "116",
+            "IPlcTypeInfo": "PointerInfo",
+            "dataType": 13,
+            "name": "POINTER TO BYTE",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "POINTER TO PVOID": {
+            "$id": "117",
+            "IPlcTypeInfo": "PointerInfo",
+            "dataType": 13,
+            "name": "POINTER TO PVOID",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "POINTER TO SINT": {
+            "$id": "118",
+            "IPlcTypeInfo": "PointerInfo",
+            "dataType": 13,
+            "name": "POINTER TO SINT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "POINTER TO STRING(80)": {
+            "$id": "119",
+            "IPlcTypeInfo": "PointerInfo",
+            "dataType": 13,
+            "name": "POINTER TO STRING(80)",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "PVOID": {
+            "$id": "120",
+            "IPlcTypeInfo": "PointerInfo",
+            "dataType": 13,
+            "name": "PVOID",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "REFERENCE TO AMSADDR": {
+            "$id": "121",
+            "IPlcTypeInfo": "ReferenceInfo",
+            "dataType": 15,
+            "name": "REFERENCE TO AMSADDR",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "REFERENCE TO CLSID": {
+            "$id": "122",
+            "IPlcTypeInfo": "ReferenceInfo",
+            "dataType": 15,
+            "name": "REFERENCE TO CLSID",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "REFERENCE TO DINT": {
+            "$id": "123",
+            "IPlcTypeInfo": "ReferenceInfo",
+            "dataType": 15,
+            "name": "REFERENCE TO DINT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "REFERENCE TO IID": {
+            "$id": "124",
+            "IPlcTypeInfo": "ReferenceInfo",
+            "dataType": 15,
+            "name": "REFERENCE TO IID",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "REFERENCE TO ITComObjCon": {
+            "$id": "125",
+            "IPlcTypeInfo": "ReferenceInfo",
+            "dataType": 15,
+            "name": "REFERENCE TO ITComObjCon",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "REFERENCE TO ITComObjInd": {
+            "$id": "126",
+            "IPlcTypeInfo": "ReferenceInfo",
+            "dataType": 15,
+            "name": "REFERENCE TO ITComObjInd",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "REFERENCE TO PVOID": {
+            "$id": "127",
+            "IPlcTypeInfo": "ReferenceInfo",
+            "dataType": 15,
+            "name": "REFERENCE TO PVOID",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "REFERENCE TO UDINT": {
+            "$id": "128",
+            "IPlcTypeInfo": "ReferenceInfo",
+            "dataType": 15,
+            "name": "REFERENCE TO UDINT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "REFERENCE TO WORD": {
+            "$id": "129",
+            "IPlcTypeInfo": "ReferenceInfo",
+            "dataType": 15,
+            "name": "REFERENCE TO WORD",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "SINT": {
+            "$id": "130",
+            "IPlcTypeInfo": "PrimitiveInfo",
+            "dataType": 1,
+            "name": "SINT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 8
+        },
+        "ST_LibVersion": {
+            "$id": "131",
+            "IPlcTypeInfo": "StructInfo",
+            "dataType": 5,
+            "fields": {
+                "$id": "132",
+                "$values": [
+                    {
+                        "$id": "133",
+                        "offset": 0,
+                        "instanceName": "iMajor",
+                        "typeName": "UINT"
+                    },
+                    {
+                        "$id": "134",
+                        "offset": 2,
+                        "instanceName": "iMinor",
+                        "typeName": "UINT"
+                    },
+                    {
+                        "$id": "135",
+                        "offset": 4,
+                        "instanceName": "iBuild",
+                        "typeName": "UINT"
+                    },
+                    {
+                        "$id": "136",
+                        "offset": 6,
+                        "instanceName": "iRevision",
+                        "typeName": "UINT"
+                    },
+                    {
+                        "$id": "137",
+                        "offset": 8,
+                        "instanceName": "nFlags",
+                        "typeName": "DWORD"
+                    },
+                    {
+                        "$id": "138",
+                        "offset": 12,
+                        "instanceName": "sVersion",
+                        "typeName": "STRING(23)"
+                    }
+                ]
+            },
+            "name": "ST_LibVersion",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 36
+        },
+        "STRING(23)": {
+            "$id": "139",
+            "IPlcTypeInfo": "StringInfo",
+            "dataType": 10,
+            "name": "STRING(23)",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 24
+        },
+        "STRING(63)": {
+            "$id": "140",
+            "IPlcTypeInfo": "StringInfo",
+            "dataType": 10,
+            "name": "STRING(63)",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 64
+        },
+        "STRING(80)": {
+            "$id": "141",
+            "IPlcTypeInfo": "StringInfo",
+            "dataType": 10,
+            "name": "STRING(80)",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 81
+        },
+        "UDINT": {
+            "$ref": "89"
+        },
+        "UINT": {
+            "$id": "142",
+            "IPlcTypeInfo": "PrimitiveInfo",
+            "dataType": 1,
+            "name": "UINT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 16
+        },
+        "USINT": {
+            "$ref": "91"
+        },
+        "UXINT": {
+            "$id": "143",
+            "IPlcTypeInfo": "PrimitiveInfo",
+            "dataType": 1,
+            "name": "UXINT",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 64
+        },
+        "WORD": {
+            "$id": "144",
+            "IPlcTypeInfo": "PrimitiveInfo",
+            "dataType": 1,
+            "name": "WORD",
+            "nameSpace": "5.113.195.149.1.1:851",
+            "typeComment": "",
+            "size": 16
+        }
+    },
+    "rootSymbol": {
+        "$id": "145",
+        "typeNameFromPLC": "Struct",
+        "instanceName": "Root",
+        "indexGroup": 0,
+        "indexOffset": 0,
+        "size": 0,
+        "subSymbols": {
+            "$id": "146",
+            "$values": [
+                {
+                    "$id": "147",
+                    "typeNameFromPLC": "",
+                    "instanceName": "Global_Version",
+                    "indexGroup": 0,
+                    "indexOffset": 0,
+                    "size": 0,
+                    "subSymbols": {
+                        "$id": "148",
+                        "$values": [
+                            {
+                                "$id": "149",
+                                "typeNameFromPLC": "ST_LibVersion",
+                                "instanceName": "stLibVersion_Tc2_Standard",
+                                "indexGroup": 16448,
+                                "indexOffset": 384000,
+                                "size": 36,
+                                "subSymbols": {
+                                    "$id": "150",
+                                    "$values": [
+                                        {
+                                            "$id": "151",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iMajor",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384000,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "152",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "153",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iMinor",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384002,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "154",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "155",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iBuild",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384004,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "156",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "157",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iRevision",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384006,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "158",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "159",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "nFlags",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384008,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "160",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "161",
+                                            "typeNameFromPLC": "STRING(23)",
+                                            "instanceName": "sVersion",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384012,
+                                            "size": 24,
+                                            "subSymbols": {
+                                                "$id": "162",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        }
+                                    ]
+                                },
+                                "isInUse": true,
+                                "isArray": false
+                            },
+                            {
+                                "$id": "163",
+                                "typeNameFromPLC": "ST_LibVersion",
+                                "instanceName": "stLibVersion_Tc2_System",
+                                "indexGroup": 16448,
+                                "indexOffset": 384036,
+                                "size": 36,
+                                "subSymbols": {
+                                    "$id": "164",
+                                    "$values": [
+                                        {
+                                            "$id": "165",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iMajor",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384036,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "166",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "167",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iMinor",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384038,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "168",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "169",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iBuild",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384040,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "170",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "171",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iRevision",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384042,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "172",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "173",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "nFlags",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384044,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "174",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "175",
+                                            "typeNameFromPLC": "STRING(23)",
+                                            "instanceName": "sVersion",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384048,
+                                            "size": 24,
+                                            "subSymbols": {
+                                                "$id": "176",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        }
+                                    ]
+                                },
+                                "isInUse": true,
+                                "isArray": false
+                            },
+                            {
+                                "$id": "177",
+                                "typeNameFromPLC": "ST_LibVersion",
+                                "instanceName": "stLibVersion_Tc3_Module",
+                                "indexGroup": 16448,
+                                "indexOffset": 384072,
+                                "size": 36,
+                                "subSymbols": {
+                                    "$id": "178",
+                                    "$values": [
+                                        {
+                                            "$id": "179",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iMajor",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384072,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "180",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "181",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iMinor",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384074,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "182",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "183",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iBuild",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384076,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "184",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "185",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "iRevision",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384078,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "186",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "187",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "nFlags",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384080,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "188",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "189",
+                                            "typeNameFromPLC": "STRING(23)",
+                                            "instanceName": "sVersion",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 384084,
+                                            "size": 24,
+                                            "subSymbols": {
+                                                "$id": "190",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        }
+                                    ]
+                                },
+                                "isInUse": true,
+                                "isArray": false
+                            }
+                        ]
+                    },
+                    "isInUse": true,
+                    "isArray": false
+                },
+                {
+                    "$id": "191",
+                    "typeNameFromPLC": "",
+                    "instanceName": "TwinCAT_SystemInfoVarList",
+                    "indexGroup": 0,
+                    "indexOffset": 0,
+                    "size": 0,
+                    "subSymbols": {
+                        "$id": "192",
+                        "$values": [
+                            {
+                                "$id": "193",
+                                "symbolAttributes": {
+                                    "$id": "194",
+                                    "$values": [
+                                        {
+                                            "$id": "195",
+                                            "name": "TcContextName",
+                                            "value": "PlcTask"
+                                        }
+                                    ]
+                                },
+                                "typeNameFromPLC": "_Implicit_Task_Info",
+                                "instanceName": "__PlcTask",
+                                "indexGroup": 16448,
+                                "indexOffset": 385440,
+                                "size": 112,
+                                "subSymbols": {
+                                    "$id": "196",
+                                    "$values": [
+                                        {
+                                            "$id": "197",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwVersion",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385440,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "198",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "199",
+                                            "typeNameFromPLC": "POINTER TO STRING(80)",
+                                            "instanceName": "pszName",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385448,
+                                            "size": 8,
+                                            "subSymbols": {
+                                                "$id": "200",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "201",
+                                            "typeNameFromPLC": "INT",
+                                            "instanceName": "nPriority",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385456,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "202",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "203",
+                                            "typeNameFromPLC": "_Implicit_KindOfTask",
+                                            "instanceName": "KindOf",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385458,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "204",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "205",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "bWatchdog",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385460,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "206",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "207",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "bProfilingTask",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385461,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "208",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "209",
+                                            "typeNameFromPLC": "POINTER TO BYTE",
+                                            "instanceName": "dwEventFunctionPointer",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385464,
+                                            "size": 8,
+                                            "subSymbols": {
+                                                "$id": "210",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "211",
+                                            "typeNameFromPLC": "POINTER TO STRING(80)",
+                                            "instanceName": "pszExternalEvent",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385472,
+                                            "size": 8,
+                                            "subSymbols": {
+                                                "$id": "212",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "213",
+                                            "typeNameFromPLC": "POINTER TO BYTE",
+                                            "instanceName": "dwTaskEntryFunctionPointer",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385480,
+                                            "size": 8,
+                                            "subSymbols": {
+                                                "$id": "214",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "215",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwWatchdogSensitivity",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385488,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "216",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "217",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwInterval",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385492,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "218",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "219",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwWatchdogTime",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385496,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "220",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "221",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwLastCycleTime",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385500,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "222",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "223",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwAverageCycleTime",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385504,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "224",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "225",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwMaxCycleTime",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385508,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "226",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "227",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwMinCycleTime",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385512,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "228",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "229",
+                                            "typeNameFromPLC": "DINT",
+                                            "instanceName": "diJitter",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385516,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "230",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "231",
+                                            "typeNameFromPLC": "DINT",
+                                            "instanceName": "diJitterMin",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385520,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "232",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "233",
+                                            "typeNameFromPLC": "DINT",
+                                            "instanceName": "diJitterMax",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385524,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "234",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "235",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwCycleCount",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385528,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "236",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "237",
+                                            "typeNameFromPLC": "WORD",
+                                            "instanceName": "wTaskStatus",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385532,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "238",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "239",
+                                            "typeNameFromPLC": "WORD",
+                                            "instanceName": "wNumOfJitterDistributions",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385534,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "240",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "241",
+                                            "typeNameFromPLC": "POINTER TO _Implicit_Jitter_Distribution",
+                                            "instanceName": "pJitterDistribution",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385536,
+                                            "size": 8,
+                                            "subSymbols": {
+                                                "$id": "242",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "243",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "bWithinSPSTimeSlicing",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385544,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "244",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "245",
+                                            "typeNameFromPLC": "BYTE",
+                                            "instanceName": "byDummy",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385545,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "246",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "247",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "bShouldBlock",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385546,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "248",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "249",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "bActive",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385547,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "250",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "251",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "dwIECCycleCount",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385548,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "252",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        }
+                                    ]
+                                },
+                                "isInUse": true,
+                                "isArray": false
+                            },
+                            {
+                                "$id": "253",
+                                "typeNameFromPLC": "PLC.PlcAppSystemInfo",
+                                "instanceName": "_AppInfo",
+                                "indexGroup": 16448,
+                                "indexOffset": 385048,
+                                "size": 256,
+                                "subSymbols": {
+                                    "$id": "254",
+                                    "$values": [
+                                        {
+                                            "$id": "255",
+                                            "typeNameFromPLC": "OTCID",
+                                            "instanceName": "ObjId",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385048,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "256",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "257",
+                                            "typeNameFromPLC": "UDINT",
+                                            "instanceName": "TaskCnt",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385052,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "258",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "259",
+                                            "typeNameFromPLC": "UDINT",
+                                            "instanceName": "OnlineChangeCnt",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385056,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "260",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "261",
+                                            "typeNameFromPLC": "DWORD",
+                                            "instanceName": "Flags",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385060,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "262",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "263",
+                                            "typeNameFromPLC": "UINT",
+                                            "instanceName": "AdsPort",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385064,
+                                            "size": 2,
+                                            "subSymbols": {
+                                                "$id": "264",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "265",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "BootDataLoaded",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385066,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "266",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "267",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "OldBootData",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385067,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "268",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "269",
+                                            "typeNameFromPLC": "DT",
+                                            "instanceName": "AppTimestamp",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385068,
+                                            "size": 4,
+                                            "subSymbols": {
+                                                "$id": "270",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "271",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "KeepOutputsOnBP",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385072,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "272",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "273",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "ShutdownInProgress",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385073,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "274",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "275",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "LicensesPending",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385074,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "276",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "277",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "BSODOccured",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385075,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "278",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "279",
+                                            "typeNameFromPLC": "BOOL",
+                                            "instanceName": "LoggedIn",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385076,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "280",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "281",
+                                            "typeNameFromPLC": "PLC.EPlcPersistentStatus",
+                                            "instanceName": "PersistentStatus",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385077,
+                                            "size": 1,
+                                            "subSymbols": {
+                                                "$id": "282",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "283",
+                                            "typeNameFromPLC": "ITComObjectServer",
+                                            "instanceName": "TComSrvPtr",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385080,
+                                            "size": 8,
+                                            "subSymbols": {
+                                                "$id": "284",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "285",
+                                            "typeNameFromPLC": "STRING(63)",
+                                            "instanceName": "AppName",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385112,
+                                            "size": 64,
+                                            "subSymbols": {
+                                                "$id": "286",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        },
+                                        {
+                                            "$id": "287",
+                                            "typeNameFromPLC": "STRING(63)",
+                                            "instanceName": "ProjectName",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385176,
+                                            "size": 64,
+                                            "subSymbols": {
+                                                "$id": "288",
+                                                "$values": []
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        }
+                                    ]
+                                },
+                                "isInUse": true,
+                                "isArray": false
+                            },
+                            {
+                                "$id": "289",
+                                "typeNameFromPLC": "ARRAY [1..1] OF PLC.PlcTaskSystemInfo",
+                                "instanceName": "_TaskInfo",
+                                "indexGroup": 16448,
+                                "indexOffset": 385304,
+                                "size": 128,
+                                "subSymbols": {
+                                    "$id": "290",
+                                    "$values": [
+                                        {
+                                            "$id": "291",
+                                            "typeNameFromPLC": "PLC.PlcTaskSystemInfo",
+                                            "instanceName": "_TaskInfo[1]",
+                                            "indexGroup": 16448,
+                                            "indexOffset": 385304,
+                                            "size": 128,
+                                            "subSymbols": {
+                                                "$id": "292",
+                                                "$values": [
+                                                    {
+                                                        "$id": "293",
+                                                        "typeNameFromPLC": "OTCID",
+                                                        "instanceName": "ObjId",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385304,
+                                                        "size": 4,
+                                                        "subSymbols": {
+                                                            "$id": "294",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "295",
+                                                        "typeNameFromPLC": "UDINT",
+                                                        "instanceName": "CycleTime",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385308,
+                                                        "size": 4,
+                                                        "subSymbols": {
+                                                            "$id": "296",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "297",
+                                                        "typeNameFromPLC": "UINT",
+                                                        "instanceName": "Priority",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385312,
+                                                        "size": 2,
+                                                        "subSymbols": {
+                                                            "$id": "298",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "299",
+                                                        "typeNameFromPLC": "UINT",
+                                                        "instanceName": "AdsPort",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385314,
+                                                        "size": 2,
+                                                        "subSymbols": {
+                                                            "$id": "300",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "301",
+                                                        "typeNameFromPLC": "UDINT",
+                                                        "instanceName": "CycleCount",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385316,
+                                                        "size": 4,
+                                                        "subSymbols": {
+                                                            "$id": "302",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "303",
+                                                        "typeNameFromPLC": "LINT",
+                                                        "instanceName": "DcTaskTime",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385320,
+                                                        "size": 8,
+                                                        "subSymbols": {
+                                                            "$id": "304",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "305",
+                                                        "typeNameFromPLC": "UDINT",
+                                                        "instanceName": "LastExecTime",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385328,
+                                                        "size": 4,
+                                                        "subSymbols": {
+                                                            "$id": "306",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "307",
+                                                        "typeNameFromPLC": "BOOL",
+                                                        "instanceName": "FirstCycle",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385332,
+                                                        "size": 1,
+                                                        "subSymbols": {
+                                                            "$id": "308",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "309",
+                                                        "typeNameFromPLC": "BOOL",
+                                                        "instanceName": "CycleTimeExceeded",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385333,
+                                                        "size": 1,
+                                                        "subSymbols": {
+                                                            "$id": "310",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "311",
+                                                        "typeNameFromPLC": "BOOL",
+                                                        "instanceName": "InCallAfterOutputUpdate",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385334,
+                                                        "size": 1,
+                                                        "subSymbols": {
+                                                            "$id": "312",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "313",
+                                                        "typeNameFromPLC": "BOOL",
+                                                        "instanceName": "RTViolation",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385335,
+                                                        "size": 1,
+                                                        "subSymbols": {
+                                                            "$id": "314",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    },
+                                                    {
+                                                        "$id": "315",
+                                                        "typeNameFromPLC": "STRING(63)",
+                                                        "instanceName": "TaskName",
+                                                        "indexGroup": 16448,
+                                                        "indexOffset": 385368,
+                                                        "size": 64,
+                                                        "subSymbols": {
+                                                            "$id": "316",
+                                                            "$values": []
+                                                        },
+                                                        "isInUse": true,
+                                                        "isArray": false
+                                                    }
+                                                ]
+                                            },
+                                            "isInUse": true,
+                                            "isArray": false
+                                        }
+                                    ]
+                                },
+                                "isInUse": true,
+                                "isArray": true
+                            },
+                            {
+                                "$id": "317",
+                                "typeNameFromPLC": "OTCID",
+                                "instanceName": "_TaskOid_PlcTask",
+                                "indexGroup": 16448,
+                                "indexOffset": 385432,
+                                "size": 4,
+                                "subSymbols": {
+                                    "$id": "318",
+                                    "$values": []
+                                },
+                                "isInUse": true,
+                                "isArray": false
+                            },
+                            {
+                                "$id": "319",
+                                "typeNameFromPLC": "OTCID",
+                                "instanceName": "_TaskPouOid_PlcTask",
+                                "indexGroup": 16448,
+                                "indexOffset": 385044,
+                                "size": 4,
+                                "subSymbols": {
+                                    "$id": "320",
+                                    "$values": []
+                                },
+                                "isInUse": true,
+                                "isArray": false
+                            }
+                        ]
+                    },
+                    "isInUse": true,
+                    "isArray": false
+                }
+            ]
+        },
+        "isInUse": true,
+        "isArray": false
+    }
+}

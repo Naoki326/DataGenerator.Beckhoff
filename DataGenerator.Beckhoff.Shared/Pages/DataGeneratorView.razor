@@ -1,0 +1,74 @@
+﻿<div class="Home-body">
+    <div class="scrollable-container">
+        <MTreeview @bind-Open="@initiallyOpen"
+                   Rounded
+                   Hoverable
+                   Dense
+                   Style="width:600px"
+                   Items="@([.. rootSymbol.GetSubSymbols()])"
+                   ItemText="@(p=>p.InstanceName)"
+                   ItemChildren="@(p=>[.. p.GetSubSymbols()])"
+                   ItemKey="@(p=>p.GetHashCode())">
+            <LabelContent>
+                <PBlockText Primary="@($"{context.Item.InstanceName}" + (string.IsNullOrEmpty(context.Item.TypeNameFromPLC) ? "" : $"({context.Item.TypeNameFromPLC})"))"
+                Secondary="@($"(IG:{context.Item.IndexGroup:X4}, IO:{context.Item.IndexOffset:X4})")" />
+            </LabelContent>
+            <AppendContent>
+                <BeckhoffSymbolView CurrentSymbol="@context.Item" />
+            </AppendContent>
+        </MTreeview>
+    </div>
+
+    <div class="static-container">
+        <MTextField Label="Ip" UpdateOnChange Style="width:60;" Type="string"
+                    TValue="string" @bind-Value="@(beckhoffIp)">
+        </MTextField>
+        <MTextField Label="Port" Type="number" UpdateOnChange Style="width:60;"
+                    @bind-Value="@(beckhoffPort)">
+        </MTextField>
+        <MButton OnClick="ResolveFromBeckhoff" Disabled="!canResolveFromBeckhoff">
+            倍福导入
+        </MButton>
+        <MButton OnClick="LoadFromFile" Disabled="!canLoadFromFile">
+            本地文件导入
+        </MButton>
+        <MTextField Label="生成代码路径" UpdateOnChange Style="width:60;" Type="string"
+                    TValue="string" @bind-Value="@(directoryPath)">
+        </MTextField>
+        <MTextField Label="命名空间" UpdateOnChange Style="width:60;" Type="string"
+                    TValue="string" @bind-Value="@(nameSpace)">
+        </MTextField>
+        <MTextField Label="Root文件名" UpdateOnChange Style="width:60;" Type="string"
+                    TValue="string" @bind-Value="@(rootFileName)">
+        </MTextField>
+        <MTextField Label="Dll名称" UpdateOnChange Style="width:60;" Type="string"
+                    TValue="string" @bind-Value="@(dllName)">
+        </MTextField>
+        <MButton RightIconName="mdi-star" Color="@(isGenerate ? "green" : "red")" Disabled="!canGenerate" OnClick="GenerateCsFile">
+            生成代码文件
+        </MButton>
+    </div>
+</div>
+
+<style>
+    .Home-body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%; /* 设置总高度 */
+        border: 1px solid #ccc; /* 添加边框可视化 */
+    }
+
+    .scrollable-container {
+        flex: 1; /* 占据可用空间的 1/2 */
+        overflow-y: auto; /* 允许垂直滚动 */
+        border-right: 1px solid #ccc; /* 添加右边框分隔 */
+        box-sizing: border-box; /* 包括内边距和边框在内 */
+    }
+
+    /* 静态容器 */
+    .static-container {
+        flex: 1; /* 占据可用空间的 1/2 */
+        box-sizing: border-box; /* 包括内边距和边框在内 */
+    }
+</style>

@@ -1,0 +1,42 @@
+﻿@page "/home"
+
+<MCard Class="mx-auto" >
+    <MCardTitle Class="text-h6 font-weight-regular justify-space-between">
+        <span>@currentTitle</span>
+        <MAvatar Color="primary lighten-2" Class="subheading white--text" Size="24">@step</MAvatar>
+    </MCardTitle>
+
+    <MWindow @bind-Value="Step">
+        <MWindowItem Value="1">
+            <DataGeneratorView @ref="dataGenerator" />
+        </MWindowItem>
+
+        <MWindowItem Value="2">
+            <MCardText>
+                <StructTool
+                    RootFileName="@dataGenerator.rootFileName"
+                    NameSpace="@dataGenerator.nameSpace"
+                    DllName="@dataGenerator.dllName"
+                    DirectoryPath="@dataGenerator.directoryPath"
+                    />
+            </MCardText>
+        </MWindowItem>
+    </MWindow>
+
+    <MDivider></MDivider>
+
+    <MCardActions>
+        <MButton Disabled="@(step == 1)"
+                 Text
+                 OnClick="() => step--">
+            Back
+        </MButton>
+        <MSpacer></MSpacer>
+        <MButton Disabled="@(step == 2)"
+                 Color="primary"
+                 Depressed
+                 OnClick="() => { step++; }">
+            Next
+        </MButton>
+    </MCardActions>
+</MCard>

@@ -1,0 +1,9 @@
+﻿@using BeckhoffResolver.PLCSymbol
+
+@if (symbol is not null)
+{
+	<MSwitch TValue="bool" Inset Color="success" @bind-value="@(symbol.IsInUse)">
+		IsInUse
+	</MSwitch>
+
+}
