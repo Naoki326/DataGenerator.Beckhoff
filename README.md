@@ -52,8 +52,8 @@ var axis0ActPos = Root.GVL_Motion.Motion[0].AXIS.NcToPlc.ActPos;
         如果需要在程序中获取 PLC 的值的变化，使用异步读取访问是非常低效的，因为该功能必须周期性地调用（例如通过定时器触发的轮询）。与其使用拉取（读取）模型，倍福PLC底层实现了一种推送模型。这意味着通知由倍福PLC端触发，并在上位机端形成消息/事件。
 | 模型 | 响应特点 | 资源 |
 | --- | --- | --- |
-| 拉模型 | 时效性好 | 消耗PLC资源 |
-| 推模型 | 时效性差 | 消耗上位机资源 |
+| 推模型 | 时效性好 | 消耗PLC资源 |
+| 拉模型 | 时效性差 | 消耗上位机资源 |
 
 在兼顾两种模型的基础上，提供了一套事件响应接口，该接口位于每一个数据结构中
 | 接口 | 说明 |
@@ -61,7 +61,7 @@ var axis0ActPos = Root.GVL_Motion.Motion[0].AXIS.NcToPlc.ActPos;
 | IObservable | 当前数据的事件变化接口，以Observable模型的方式提供 |
 | Refresh | 主动拉取当前数据 |
 | CheckAndNotify | 检查当前数据是否发生变化，并将变化传递到Observable接口中 |
-| SelfNotify | 打开当前数据的推模型，将Observable接口交给PLC进行数据推送，此时Refresh和CheckAndNotify不起作用。这个属性必须在本组件调用Connect成功之后设置，否则PLC推流资源无法正常打开，会导致没有事件发出 |
+| SelfNotify | 当设置该属性为true时，打开当前数据的推模型，将Observable接口交给PLC进行数据推送，此时Refresh和CheckAndNotify不起作用。注意：这个属性必须在本组件调用Connect成功之后设置，否则PLC推流资源无法正常打开，会导致没有事件发出 |
 
 IObservable接口举例：
 ```CSharp
@@ -79,7 +79,9 @@ bool Axis0InTargetPositionBlocking(Cancellation token)
     }
 }
 ```
-CircleManager
+
+### CircleManager
+寄生在PLC数据的根结构上，提供了基于拉模型的数据同步机制。首先需要把希望进行同步的数据添加到接口中，然后把同步机制打开，它会自动循环调用数据及数据子项的Refresh和CheckAndNotify方法，并通过对应的IObservable接口发出事件。
 
 ### 数据结构接口
 每个数据结构都有以下三个接口，便于界面程序获取当前数据在数据结构树上的位置
