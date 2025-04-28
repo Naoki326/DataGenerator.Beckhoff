@@ -13,6 +13,8 @@ namespace PlcCore.Data
         T this[int index] { get; set; }
 
         int Length { get; }
+
+        void CopyFrom(ref T[] sourceData);
     }
 
 }

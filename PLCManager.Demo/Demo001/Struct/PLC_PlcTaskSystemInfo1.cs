@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
+using System.Runtime.CompilerServices;
+using System.Diagnostics;
 using PLCManager.Demo.Enum;
 using PlcCore.Data;
 
@@ -16,6 +18,7 @@ namespace PLCManager.Demo.Struct
 	[StructLayout(LayoutKind.Explicit)]
 	public struct PLC_PlcTaskSystemInfo1 : IPLCStructArray<PLC_PlcTaskSystemInfo>
 	{
+		[DebuggerBrowsable(DebuggerBrowsableState.Never)]
 		[FieldOffset(0)]
 		public PLC_PlcTaskSystemInfo Item_0;
 
@@ -53,6 +56,16 @@ namespace PLCManager.Demo.Struct
 		IEnumerator IEnumerable.GetEnumerator()
 		{
 			return this.GetEnumerator();
+		}
+
+		public unsafe void CopyFrom(ref PLC_PlcTaskSystemInfo[] sourceData)
+		{
+			if(sourceData.Length != Length)
+				throw new RankException();
+			fixed (PLC_PlcTaskSystemInfo* ptr = sourceData)
+			{
+				Unsafe.CopyBlockUnaligned(ref Unsafe.As<PLC_PlcTaskSystemInfo1, byte>(ref this), ref *(byte*)ptr, (uint)(sizeof(PLC_PlcTaskSystemInfo) * Length));
+			}
 		}
 
 	}

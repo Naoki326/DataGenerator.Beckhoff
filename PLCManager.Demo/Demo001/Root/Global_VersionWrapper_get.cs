@@ -11,7 +11,7 @@ using PlcCore.Data;
 namespace PLCManager.Demo.Root
 {
 	
-	internal static class GetClass_c471c98140524de6a386f2b7171a06dd
+	internal static class GetClass_40fbec65aad04d1e9ca2f102a73f7b3d
 	{
 		internal static ref ST_LibVersion GetstLibVersion_Tc2_Standard(this Global_VersionWrapper parent) => ref parent.ref_stLibVersion_Tc2_Standard;
 		internal static ref ushort GetstLibVersion_Tc2_Standard_Dot_iMajor(this Global_VersionWrapper parent) => ref parent.ref_stLibVersion_Tc2_Standard.iMajor;

@@ -27,8 +27,10 @@ namespace BeckhoffResolver.PLCTree
             sw.WriteLine("using System;");
             sw.WriteLine("using System.Collections;");
             sw.WriteLine("using System.Collections.Generic;");
+            sw.WriteLine("using System.Diagnostics;");
             sw.WriteLine("using System.Text;");
             sw.WriteLine("using System.Runtime.InteropServices;");
+            sw.WriteLine("using System.Runtime.CompilerServices;");
             sw.WriteLine($"using {nameSpace}.Enum;");
             sw.WriteLine("using PlcCore.Data;");
             sw.WriteLine();
@@ -126,6 +128,7 @@ namespace BeckhoffResolver.PLCTree
 
             foreach (var i in Enumerable.Range(0, arrayLength))
             {
+                sw.WriteLine(tabCount.GetTabs() + "[DebuggerBrowsable(DebuggerBrowsableState.Never)]");
                 sw.WriteLine(tabCount.GetTabs() + $"public ref byte Item_{i} => ref Get({i});");
                 sw.WriteLine();
             }
@@ -152,6 +155,21 @@ namespace BeckhoffResolver.PLCTree
             sw.WriteLine(tabCount.GetTabs() + $"return this.GetEnumerator();");
             tabCount--;
             sw.WriteLine(tabCount.GetTabs() + $"}}");
+
+
+            sw.WriteLine(tabCount.GetTabs() + $"public void CopyFrom(ref byte[] sourceData)");
+            sw.WriteLine(tabCount.GetTabs() + $"{{");
+            tabCount++;
+            sw.WriteLine(tabCount.GetTabs() + $"if(sourceData.Length != Length)");
+            sw.WriteLine((tabCount + 1).GetTabs() + $"throw new RankException();");
+            sw.WriteLine(tabCount.GetTabs() + $"fixed (byte* ptr = sourceData)");
+            sw.WriteLine(tabCount.GetTabs() + "{");
+            sw.WriteLine((tabCount + 1).GetTabs() + $"Unsafe.CopyBlockUnaligned(ref Unsafe.As<String{arrayLength}, byte>(ref this), ref *(byte*)ptr, (uint)(sizeof(byte) * Length));");
+            sw.WriteLine(tabCount.GetTabs() + "}");
+            tabCount--;
+            sw.WriteLine(tabCount.GetTabs() + $"}}");
+            sw.WriteLine();
+
             sw.WriteLine();
         }
 
@@ -171,6 +189,8 @@ namespace BeckhoffResolver.PLCTree
             sw.WriteLine("using System.Collections;");
             sw.WriteLine("using System.Collections.Generic;");
             sw.WriteLine("using System.Runtime.InteropServices;");
+            sw.WriteLine("using System.Runtime.CompilerServices;");
+            sw.WriteLine("using System.Diagnostics;");
             sw.WriteLine($"using {nameSpace}.Enum;");
             sw.WriteLine("using PlcCore.Data;");
             sw.WriteLine();
@@ -212,7 +232,7 @@ namespace BeckhoffResolver.PLCTree
         {
             string arrItemTypeName = itemType.Name.ConvertFieldDefinition().ToCSharpTypeName().CapitalizeFirstLetter();
             string arrItemTypeCsName = itemType.Name.ConvertFieldDefinition().ToCSharpTypeName();
-            
+
             sw.WriteLine(tabCount.GetTabs() + $"public unsafe struct {arrItemTypeName}{arrayLength} : IPLCStructArray<{arrItemTypeCsName}>");
             sw.WriteLine(tabCount.GetTabs() + "{");
 
@@ -230,7 +250,7 @@ namespace BeckhoffResolver.PLCTree
             tabCount++;
             sw.WriteLine(tabCount.GetTabs() + $"if(index >= Length)");
             sw.WriteLine(tabCount.GetTabs() + $"{{");
-            sw.WriteLine((tabCount+1).GetTabs() + $"throw new IndexOutOfRangeException();");
+            sw.WriteLine((tabCount + 1).GetTabs() + $"throw new IndexOutOfRangeException();");
             sw.WriteLine(tabCount.GetTabs() + $"}}");
             sw.WriteLine(tabCount.GetTabs() + $"fixed({arrItemTypeCsName}* ptr = Array)");
             sw.WriteLine(tabCount.GetTabs() + $"{{");
@@ -260,13 +280,14 @@ namespace BeckhoffResolver.PLCTree
             tabCount++;
             sw.WriteLine(tabCount.GetTabs() + $"fixed({arrItemTypeCsName}* ptr = Array)");
             sw.WriteLine(tabCount.GetTabs() + $"{{");
-            sw.WriteLine((tabCount+1).GetTabs() + $"return ref ptr[index];");
+            sw.WriteLine((tabCount + 1).GetTabs() + $"return ref ptr[index];");
             sw.WriteLine(tabCount.GetTabs() + $"}}");
             tabCount--;
             sw.WriteLine(tabCount.GetTabs() + $"}}");
 
-            foreach(var i in Enumerable.Range(0, arrayLength))
+            foreach (var i in Enumerable.Range(0, arrayLength))
             {
+                sw.WriteLine(tabCount.GetTabs() + "[DebuggerBrowsable(DebuggerBrowsableState.Never)]");
                 sw.WriteLine(tabCount.GetTabs() + $"public ref {arrItemTypeCsName} Item_{i} => ref Get({i});");
                 sw.WriteLine();
             }
@@ -295,6 +316,19 @@ namespace BeckhoffResolver.PLCTree
             sw.WriteLine(tabCount.GetTabs() + $"}}");
             sw.WriteLine();
 
+            sw.WriteLine(tabCount.GetTabs() + $"public void CopyFrom(ref {arrItemTypeCsName}[] sourceData)");
+            sw.WriteLine(tabCount.GetTabs() + $"{{");
+            tabCount++;
+            sw.WriteLine(tabCount.GetTabs() + $"if(sourceData.Length != Length)");
+            sw.WriteLine((tabCount + 1).GetTabs() + $"throw new RankException();");
+            sw.WriteLine(tabCount.GetTabs() + $"fixed ({arrItemTypeCsName}* ptr = sourceData)");
+            sw.WriteLine(tabCount.GetTabs() + "{");
+            sw.WriteLine((tabCount + 1).GetTabs() + $"Unsafe.CopyBlockUnaligned(ref Unsafe.As<{arrItemTypeName}{arrayLength}, byte>(ref this), ref *(byte*)ptr, (uint)(sizeof({arrItemTypeCsName}) * Length));");
+            sw.WriteLine(tabCount.GetTabs() + "}");
+            tabCount--;
+            sw.WriteLine(tabCount.GetTabs() + $"}}");
+            sw.WriteLine();
+
             tabCount--;
 
             sw.WriteLine(tabCount.GetTabs() + "}");
@@ -312,6 +346,7 @@ namespace BeckhoffResolver.PLCTree
 
             foreach (var i in Enumerable.Range(0, arrayLength))
             {
+                sw.WriteLine(tabCount.GetTabs() + "[DebuggerBrowsable(DebuggerBrowsableState.Never)]");
                 sw.WriteLine(tabCount.GetTabs() + $"[FieldOffset({i * itemType.Size})]");
                 sw.WriteLine(tabCount.GetTabs() + $"public {arrItemTypeName} Item_{i};");
                 sw.WriteLine();
@@ -376,6 +411,19 @@ namespace BeckhoffResolver.PLCTree
             sw.WriteLine(tabCount.GetTabs() + $"{{");
             tabCount++;
             sw.WriteLine(tabCount.GetTabs() + $"return this.GetEnumerator();");
+            tabCount--;
+            sw.WriteLine(tabCount.GetTabs() + $"}}");
+            sw.WriteLine();
+
+            sw.WriteLine(tabCount.GetTabs() + $"public void CopyFrom(ref {arrItemTypeCsName}[] sourceData)");
+            sw.WriteLine(tabCount.GetTabs() + $"{{");
+            tabCount++;
+            sw.WriteLine(tabCount.GetTabs() + $"if(sourceData.Length != Length)");
+            sw.WriteLine((tabCount + 1).GetTabs() + $"throw new RankException();");
+            sw.WriteLine(tabCount.GetTabs() + $"fixed ({arrItemTypeCsName}* ptr = sourceData)");
+            sw.WriteLine(tabCount.GetTabs() + "{");
+            sw.WriteLine((tabCount + 1).GetTabs() + $"Unsafe.CopyBlockUnaligned(ref Unsafe.As<{arrItemTypeName}{arrayLength}, byte>(ref this), ref *(byte*)ptr, (uint)(sizeof({arrItemTypeCsName}) * Length));");
+            sw.WriteLine(tabCount.GetTabs() + "}");
             tabCount--;
             sw.WriteLine(tabCount.GetTabs() + $"}}");
             sw.WriteLine();

@@ -11,7 +11,7 @@ using PlcCore.Data;
 namespace PLCManager.Demo.Root
 {
 	
-	internal static class GetClass_4b08a17c5a17457c9145bfb283cea878
+	internal static class GetClass_73c447b40ab941679933e90d3767cff6
 	{
 		internal static ref uint Get_TaskPouOid_PlcTask(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__TaskPouOid_PlcTask;
 		internal static ref PLC_PlcAppSystemInfo Get_AppInfo(this TwinCAT_SystemInfoVarListWrapper parent) => ref parent.ref__AppInfo;

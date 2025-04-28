@@ -26,7 +26,7 @@ namespace BeckhoffResolver.PLCTree
             }
             foreach (var item in TypeDict)
             {
-                switch(item.Value.DataType)
+                switch (item.Value.DataType)
                 {
                     case DataTypeEnum.Struct:
                         if (!Directory.Exists(Path.Combine(directoryPath, "Struct")))
@@ -34,14 +34,14 @@ namespace BeckhoffResolver.PLCTree
                             Directory.CreateDirectory(Path.Combine(directoryPath, "Struct"));
                         }
                         GenerateStruct(directoryPath, Path.Combine(directoryPath, "Struct", item.Key.MakeValidFileName() + ".cs"), nameSpace, (StructInfo)item.Value);
-                    break;
+                        break;
                     case DataTypeEnum.Enum:
                         if (!Directory.Exists(Path.Combine(directoryPath, "Enum")))
                         {
                             Directory.CreateDirectory(Path.Combine(directoryPath, "Enum"));
                         }
                         GenerateEnum(Path.Combine(directoryPath, "Enum", item.Key.MakeValidFileName() + ".cs"), nameSpace, (EnumInfo)item.Value);
-                    break;
+                        break;
                     case DataTypeEnum.Array:
                         GeneratePLCStructArray(directoryPath, nameSpace, (ArrayInfo)item.Value);
                         break;
@@ -107,6 +107,7 @@ namespace BeckhoffResolver.PLCTree
                 {
                     sw.WriteLine("using System;");
                     sw.WriteLine("using System.Runtime.InteropServices;");
+                    sw.WriteLine("using System.Diagnostics;");
                     sw.WriteLine($"using {nameSpace}.Enum;");
                     sw.WriteLine();
                     sw.WriteLine($"namespace {nameSpace}.Struct");

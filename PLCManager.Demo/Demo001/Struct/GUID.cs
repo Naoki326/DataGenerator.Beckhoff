@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 using PLCManager.Demo.Enum;
 
 namespace PLCManager.Demo.Struct

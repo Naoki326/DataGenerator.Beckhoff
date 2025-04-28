@@ -57,10 +57,7 @@ namespace PlcCore.Beckhoff
             {
                 beckhoffNotify = client.WhenNotification<T[]>(this.GetFullName(), NotificationSettings.Default).Subscribe((v) =>
                 {
-                    for (int i = 0; i < Count; i++)
-                    {
-                        getData()[i] = v[i];
-                    }
+                    getData().CopyFrom(ref v);
                     notifySubject.OnNext(v);
                 });
             }
@@ -124,10 +121,7 @@ namespace PlcCore.Beckhoff
         public override T[] Get(int timeout = -1, CancellationToken token = default)
         {
             T[] readData = client.ReadAny<T[]>(indexGroup, indexOffset, [this.Count]);
-            for (int i = 0; i < Count; i++)
-            {
-                getData()[i] = readData[i];
-            }
+            getData().CopyFrom(ref readData);
             return readData;
         }
 
@@ -155,10 +149,7 @@ namespace PlcCore.Beckhoff
             if (getTask.Status == TaskStatus.RanToCompletion)
             {
                 T[] readData = getTask.Result.Value;
-                for (int i = 0; i < Count; i++)
-                {
-                    getData()[i] = readData[i];
-                }
+                getData().CopyFrom(ref readData);
                 return readData;
             }
             throw getTask.Exception;
@@ -273,10 +264,7 @@ namespace PlcCore.Beckhoff
             {
                 beckhoffNotify = client.WhenNotification<T[]>(this.GetFullName(), NotificationSettings.Default).Subscribe((v) =>
                 {
-                    for (int i = 0; i < Count; i++)
-                    {
-                        getData()[i] = v[i];
-                    }
+                    getData().CopyFrom(ref v);
                     notifySubject.OnNext(v);
                 });
             }
@@ -340,10 +328,7 @@ namespace PlcCore.Beckhoff
         public override T[] Get(int timeout = -1, CancellationToken token = default)
         {
             T[] readData = client.ReadAny<T[]>(indexGroup, indexOffset, [this.Count]);
-            for (int i = 0; i < Count; i++)
-            {
-                getData()[i] = readData[i];
-            }
+            getData().CopyFrom(ref readData);
             return readData;
         }
 
